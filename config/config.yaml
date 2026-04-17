@@ -1,0 +1,77 @@
+# FinIntel AI Configuration
+# ========================================
+
+# API Keys (set via environment variables)
+api_keys:
+  groq_api_key: "${GROQ_API_KEY}"           # Get from https://console.groq.com
+  # fred_api_key: "${FRED_API_KEY}"          # Get from https://fred.stlouisfed.org/apiKeys
+
+# Database
+database:
+  path: "data/finintel.db"
+  backup_path: "data/finintel_backup.db"
+
+# Scraping Settings
+scraping:
+  user_agent: "FinIntelAI/1.0 (Personal Financial Research Tool)"
+  request_timeout: 30
+  retry_attempts: 3
+  retry_delay: 5
+  rate_limit_delay: 2  # seconds between requests
+
+# AI Brain Settings
+ai_brain:
+  model: "llama-3-70b-8192"  # Groq: llama-3-70b-8192, llama-3-8b-8192
+  temperature: 0.1          # Low temp for consistent scoring
+  max_tokens: 1024
+  importance_threshold: 5     # Minimum score to show on dashboard
+
+# Scoring Rules (Importance 1-10)
+scoring_rules:
+  # Equity
+  insider_buy_csuite_over_1m: 9
+  insider_buy_over_100k: 7
+  insider_sell_csuite: 6
+  dark_pool_large_print: 8
+  unusual_options_flow: 7
+  form_4_filing: 5
+  
+  # Macro
+  fed_balance_sheet_change_5pct: 9
+  wei_surprise: 8
+  m2_change_2pct: 7
+  ecb_rate_change: 8
+  
+  # Commodities
+  gold_lease_rate_spike: 8
+  silver_ratio_extreme: 7
+  tanker_disruption: 7
+  
+  # IPO/ICO
+  ipo_oversubscribed: 7
+  ico_grade_a: 6
+  
+  # Geopolitical
+  major_event_keywords: 8
+
+# Dashboard Settings
+dashboard:
+  host: "localhost"
+  port: 8501
+  theme: "dark"
+  refresh_interval: 300  # seconds
+
+# Watchlist (your personal tickers)
+watchlist:
+  equities:
+    - "NVDA"
+    - "AAPL"
+    - "MSFT"
+    - "GOOGL"
+  etfs:
+    - "GLD"
+    - "SLV"
+    - "TLT"
+  crypto:
+    - "bitcoin"
+    - "ethereum"
