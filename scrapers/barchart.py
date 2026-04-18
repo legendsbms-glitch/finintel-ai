@@ -51,7 +51,7 @@ class BarchartScraper(BaseScraper):
                 vol = cols[4].get_text(strip=True)
                 pct = cols[5].get_text(strip=True)
                 dollar_vol = cols[6].get_text(strip=True)
-                "vol" = cols[7].get_text(strip=True)  # Put/Call volume
+                put_call_vol = cols[7].get_text(strip=True)  # Put/Call volume
 
                 # Parse numeric values
                 vol_num = self._parse_number(vol)
@@ -71,7 +71,7 @@ class BarchartScraper(BaseScraper):
                     "volume": vol_num,
                     "volume_pct": pct_num,
                     "dollar_volume": dollar_vol_num,
-                    "put_call": vol,
+                    "put_call": put_call_vol,
                     "is_unusual": is_unusual
                 }
                 items.append(item)
