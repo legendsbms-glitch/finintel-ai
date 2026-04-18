@@ -16,10 +16,10 @@ logger = logging.getLogger(__name__)
 class IPOscraper(BaseScraper):
     """Scrapes IPO calendar from Renaissance Capital."""
 
-    # Renaissance Capital RSS
-    IPO_RSS = "https://www.renaissancecapital.com/Research/IPO-Calendar/rss.aspx"
+    # Benzinga IPO calendar RSS (working)
+    IPO_RSS = "https://feeds2.benzinga.com/calendars/ipos"
     
-    # IPOMonitor (alternative)
+    # Fallback: IPOMonitor (alternative)
     IPOMONITOR_URL = "https://www.iposcreener.com"
 
     def __init__(self, config: Dict[str, Any]):

@@ -16,10 +16,10 @@ logger = logging.getLogger(__name__)
 class KitcoScraper(BaseScraper):
     """Scrapes precious metals data from Kitco."""
 
-    GOLD_URL = "https://www.kitco.com/gold-price"
-    SILVER_URL = "https://www.kitco.com/silver-price"
-    MARKET_URL = "https://www.kitco.com/markets/live-metal-prices"
-    INDIAN_URL = "https://www.kitco.com/international"
+    GOLD_URL = "https://www.kitco.com/price/"
+    SILVER_URL = "https://www.kitco.com/price/"
+    MARKET_URL = "https://www.kitco.com/charts/"
+    INDIAN_URL = "https://www.kitco.com/price/"
 
     def __init__(self, config: Dict[str, Any]):
         super().__init__(config)

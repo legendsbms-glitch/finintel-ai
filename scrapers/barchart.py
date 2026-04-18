@@ -17,8 +17,8 @@ class BarchartScraper(BaseScraper):
     """Scrapes dark pool and options flow data from Barchart."""
 
     # Key pages
-    DARK_POOL_URL = "https://www.barchart.com/market-data/unusual-activity"
-    OPTIONS_URL = "https://www.barchart.com/stocks-most-accurate/includes-options-flow"
+    DARK_POOL_URL = "https://www.barchart.com/options/unusual-activity"
+    OPTIONS_URL = "https://www.barchart.com/options/unusual-activity/stocks"
 
     def __init__(self, config: Dict[str, Any]):
         super().__init__(config)

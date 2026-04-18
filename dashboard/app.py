@@ -35,8 +35,9 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Database path
-DB_PATH = os.environ.get("FININTEL_DB", "data/finintel.db")
+# Database path - use absolute path from project root
+PROJECT_ROOT = Path(__file__).parent.parent.resolve()
+DB_PATH = os.environ.get("FININTEL_DB", str(PROJECT_ROOT / "data" / "finintel.db"))
 
 
 def get_connection():
